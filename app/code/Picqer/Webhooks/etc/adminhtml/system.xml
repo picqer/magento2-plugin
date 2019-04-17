@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="picqer" translate="label" sortOrder="10">
+            <label>Picqer</label>
+        </tab>
+        <section id="picqer_webhook_options" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Webhooks</label>
+            <tab>picqer</tab>
+            <resource>Picqer_Webhooks::webhooks_config</resource>
+            <group id="general_settings" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>General Configuration</label>
+                <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Active</label>
+                    <source_model>Picqer\Webhooks\Model\Sales\Active</source_model>
+                </field>
+                <field id="order_state" translate="label" type="select" sortOrder="1" showInDefault="2" showInWebsite="0" showInStore="0">
+                    <label>Order State</label>
+                    <source_model>Picqer\Webhooks\Model\Sales\Orderstate</source_model>
+                </field>
+                <field id="connection_key" translate="label" type="text" sortOrder="10" showInDefault="3" showInWebsite="0" showInStore="0">
+                    <label>Connection Key</label>
+                </field>
+                <field id="picqer_domain" translate="label" type="text" sortOrder="10" showInDefault="4" showInWebsite="0" showInStore="0">
+                    <label>Picqer Domain</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
