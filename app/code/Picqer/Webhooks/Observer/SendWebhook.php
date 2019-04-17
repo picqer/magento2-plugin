@@ -24,7 +24,7 @@ class sendWebhook implements ObserverInterface
             return;
         }
 
-        if (! $this->hasCorrectState($observer->getEvent()->getOrder()->getStatus())) {
+        if (! $this->hasCorrectState($observer->getEvent()->getOrder()->getState())) {
             return;
         }
 
@@ -38,7 +38,8 @@ class sendWebhook implements ObserverInterface
         $orderData['picqer_magento_key'] = $magentoKey;
         $orderData = json_encode($orderData);
 
-        $this->_curl->post('https://' . $domain . '.picqer.com/webshops/magento2/orderPush/' . $magentoKey, $orderData);
+        $this->_curl->addHeader("Content-Type", "application/json");
+        $this->_curl->post('https://' . $domain . '.picqer.com/webshops/magento/orderPush/' . $magentoKey, $orderData);
     }
 
     private function hasCorrectState($status)
