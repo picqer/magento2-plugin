@@ -3,7 +3,6 @@
     <default>
         <picqer_webhook_options>
             <general_settings>
-                <order_state>processing</order_state>
             </general_settings>
         </picqer_webhook_options>
     </default>
