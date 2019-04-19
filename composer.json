@@ -1,5 +1,5 @@
 {
-  "name": "picqer/module-webhooks",
+  "name": "picqer/magento2-plugin",
   "description": "Picqer Extended Integration for Magento 2",
   "version": "1.0.0",
   "type": "magento2-module",
