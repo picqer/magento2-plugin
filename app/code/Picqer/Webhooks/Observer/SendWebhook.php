@@ -36,6 +36,5 @@ class sendWebhook implements ObserverInterface
 
         $this->_curl->addHeader("Content-Type", "application/json");
         $this->_curl->post('https://' . $domain . '.picqer.com/webshops/magento2/orderPush/' . $magentoKey, $orderData);
-
     }
 }
