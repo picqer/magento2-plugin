@@ -10,7 +10,7 @@ Magento 2 Extensions for Picqer.
 
 This project can easily be installed through Composer.
 
-`composer require picqer/module-webhooks`
+`composer require picqer/magento2-plugin`
 
 Or manually: 
 1. Download repository
