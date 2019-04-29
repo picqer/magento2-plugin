@@ -1,6 +1,6 @@
 <?php
 
-namespace Picqer\Webhooks\Observer;
+namespace Picqer\Magento2\Observer;
 
 use Magento\Framework\Event\ObserverInterface;
 
@@ -19,22 +19,25 @@ class sendWebhook implements ObserverInterface
 
     public function execute(\Magento\Framework\Event\Observer $observer)
     {
-        $active = $this->_scopeConfig->getValue('picqer_webhook_options/general_settings/active');
-        if ($active != 1) {
+        $active = $this->_scopeConfig->getValue('picqer_integration_options/webhook_settings/active');
+        if ((int)$active !== 1) {
             return;
         }
 
-        $magentoKey = $this->_scopeConfig->getValue('picqer_webhook_options/general_settings/connection_key');
-        $domain = $this->_scopeConfig->getValue('picqer_webhook_options/general_settings/picqer_domain');
+        $subDomain = $this->_scopeConfig->getValue('picqer_integration_options/webhook_settings/picqer_subdomain');
+        $magentoKey = $this->_scopeConfig->getValue('picqer_integration_options/webhook_settings/connection_key');
+
+        if (empty($subDomain) || empty($magentoKey)) {
+            return; // Not fully configured
+        }
 
         $order = $observer->getEvent()->getOrder();
 
         $orderData = [];
         $orderData['increment_id'] = $order->getIncrementId();
         $orderData['picqer_magento_key'] = $magentoKey;
-        $orderData = json_encode($orderData);
 
         $this->_curl->addHeader("Content-Type", "application/json");
-        $this->_curl->post('https://' . $domain . '.picqer.com/webshops/magento2/orderPush/' . $magentoKey, $orderData);
+        $this->_curl->post('https://' . $subDomain . '.picqer.com/webshops/magento2/orderPush/' . $magentoKey, json_encode($orderData));
     }
 }

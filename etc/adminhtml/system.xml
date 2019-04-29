@@ -4,22 +4,22 @@
         <tab id="picqer" translate="label" sortOrder="10">
             <label>Picqer</label>
         </tab>
-        <section id="picqer_webhook_options" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+        <section id="picqer_integration_options" translate="label" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
             <class>separator-top</class>
-            <label>Webhooks</label>
+            <label>Integration</label>
             <tab>picqer</tab>
-            <resource>Picqer_Webhooks::webhooks_config</resource>
-            <group id="general_settings" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+            <resource>Picqer_Integration::webhooks_config</resource>
+            <group id="webhook_settings" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
                 <label>General Configuration</label>
-                <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Active</label>
-                    <source_model>Picqer\Webhooks\Model\Sales\Active</source_model>
+                    <source_model>Picqer\Magento2\Model\Sales\Active</source_model>
                 </field>
-                <field id="connection_key" translate="label" type="text" sortOrder="10" showInDefault="3" showInWebsite="0" showInStore="0">
-                    <label>Connection Key</label>
+                <field id="picqer_subdomain" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Picqer subdomain</label>
                 </field>
-                <field id="picqer_domain" translate="label" type="text" sortOrder="10" showInDefault="4" showInWebsite="0" showInStore="0">
-                    <label>Picqer Domain</label>
+                <field id="connection_key" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Connection key</label>
                 </field>
             </group>
         </section>

@@ -2,4 +2,4 @@
 
 use \Magento\Framework\Component\ComponentRegistrar;
 
-ComponentRegistrar::register(ComponentRegistrar::MODULE, 'Picqer_Webhooks', __DIR__);
+ComponentRegistrar::register(ComponentRegistrar::MODULE, 'Picqer_Integration', __DIR__);

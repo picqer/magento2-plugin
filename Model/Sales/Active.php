@@ -1,6 +1,6 @@
 <?php
 
-namespace Picqer\Webhooks\Model\Sales;
+namespace Picqer\Magento2\Model\Sales;
 
 class Active implements \Magento\Framework\Option\ArrayInterface
 {

@@ -1,9 +1,8 @@
 <?xml version="1.0"?>
 <config>
     <default>
-        <picqer_webhook_options>
-            <general_settings>
-            </general_settings>
-        </picqer_webhook_options>
+        <picqer_integration_options>
+            <webhook_settings />
+        </picqer_integration_options>
     </default>
 </config>

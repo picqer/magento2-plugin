@@ -7,26 +7,23 @@
     "picqer",
     "magento2"
   ],
+  "homepage": "https://github.com/picqer/magento2-plugin",
   "license": "MIT",
   "require": {
-    "php": ">=5.6.0"
+    "php": ">=5.6.0",
+    "ext-curl": "*",
+    "ext-json": "*"
   },
-  "repositories": [
-    {
-      "type": "git",
-      "url": "https://github.com/picqer/magento2-plugin"
-    }
-  ],
   "authors": [
     {
-      "name": "Casper Bakker",
+      "name": "Anna van Brecht",
       "email": "info@picqer.com"
     }
   ],
   "autoload": {
     "files": ["registration.php"],
     "psr-4": {
-      "Picqer\\Webhooks\\" : ""
+      "Picqer\\Magento2\\" : ""
     }
   }
 }
