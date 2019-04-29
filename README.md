@@ -18,3 +18,9 @@ bin/magento setup:upgrade
     + Connection Key: can be found in Picqer > Settings > Webshops > Magento shop. Copy and paste in this field. 
     
 Orders will now be pushed to Picqer immediately. 
+
+## Uninstall: 
+
+```
+composer remove picqer/magento2-plugin
+```
