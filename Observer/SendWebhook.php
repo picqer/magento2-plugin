@@ -4,7 +4,7 @@ namespace Picqer\Magento2\Observer;
 
 use Magento\Framework\Event\ObserverInterface;
 
-class sendWebhook implements ObserverInterface
+class SendWebhook implements ObserverInterface
 {
     protected $_scopeConfig;
     protected $_curl;
