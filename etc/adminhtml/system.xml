@@ -13,7 +13,7 @@
                 <label>General Configuration</label>
                 <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Active</label>
-                    <source_model>Picqer\Magento2\Model\Sales\Active</source_model>
+                    <source_model>Picqer\Integration\Model\Sales\Active</source_model>
                 </field>
                 <field id="picqer_subdomain" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Picqer subdomain</label>

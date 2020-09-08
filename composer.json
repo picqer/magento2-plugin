@@ -1,7 +1,7 @@
 {
   "name": "picqer/magento2-plugin",
   "description": "Picqer Extended Integration for Magento 2",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "magento2-module",
   "keywords": [
     "picqer",
@@ -17,13 +17,17 @@
   "authors": [
     {
       "name": "Anna van Brecht",
-      "email": "info@picqer.com"
-    }
+      "email": "support@picqer.com"
+    },
+    {
+      "name": "Stephan Groen",
+      "email": "support@picqer.com"
+    },
   ],
   "autoload": {
     "files": ["registration.php"],
     "psr-4": {
-      "Picqer\\Magento2\\" : ""
+      "Picqer\\Integration\\" : ""
     }
   }
 }
