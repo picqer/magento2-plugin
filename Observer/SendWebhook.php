@@ -1,6 +1,6 @@
 <?php
 
-namespace Picqer\Magento2\Observer;
+namespace Picqer\Integration\Observer;
 
 use Magento\Framework\Event\ObserverInterface;
 
