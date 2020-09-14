@@ -22,7 +22,7 @@
     {
       "name": "Stephan Groen",
       "email": "support@picqer.com"
-    },
+    }
   ],
   "autoload": {
     "files": ["registration.php"],
