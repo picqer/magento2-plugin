@@ -38,7 +38,7 @@ class SendWebhook implements ObserverInterface
         $orderData['picqer_magento_key'] = $magentoKey;
 
         $this->_curl->addHeader("Content-Type", "application/json");
-        $this->_curl->setTimeout(500);
+        $this->_curl->setTimeout(2000);
         try {
             $this->_curl->post('https://' . $subDomain . '.picqer.com/webshops/magento2/orderPush/' . $magentoKey, json_encode($orderData));
         } catch (\Exception $e) {
