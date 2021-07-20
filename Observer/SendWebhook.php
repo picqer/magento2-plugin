@@ -8,13 +8,16 @@ class SendWebhook implements ObserverInterface
 {
     protected $_scopeConfig;
     protected $_curl;
+    protected $_logger;
 
     public function __construct(
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
-        \Magento\Framework\HTTP\Client\Curl $curl
+        \Magento\Framework\HTTP\Client\Curl $curl,
+        \Psr\Log\LoggerInterface $logger
     ) {
         $this->_scopeConfig = $scopeConfig;
         $this->_curl = $curl;
+        $this->_logger = $logger;
     }
 
     public function execute(\Magento\Framework\Event\Observer $observer)
@@ -43,8 +46,7 @@ class SendWebhook implements ObserverInterface
         try {
             $this->_curl->post('https://' . trim($subDomain) . '.picqer.com/webshops/magento2/orderPush/' . trim($magentoKey), json_encode($orderData));
         } catch (\Exception $e) {
-            // Failed to deliver webhook, Picqer will import this order on next pull
-            // Log to Magento log (if enabled)
+            $this->_logger->debug('Exception occurred with Picqer: ' . $e->getMessage());
         }
     }
 }
