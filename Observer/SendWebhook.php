@@ -40,9 +40,10 @@ class SendWebhook implements ObserverInterface
         $this->_curl->addHeader("Content-Type", "application/json");
         $this->_curl->setTimeout(2000);
         try {
-            $this->_curl->post('https://' . $subDomain . '.picqer.com/webshops/magento2/orderPush/' . $magentoKey, json_encode($orderData));
+            $this->_curl->post('https://' . trim($subDomain) . '.picqer.com/webshops/magento2/orderPush/' . trim($magentoKey), json_encode($orderData));
         } catch (\Exception $e) {
             // Failed to deliver webhook, Picqer will import this order on next pull
+            // Log to Magento log (if enabled)
         }
     }
 }
