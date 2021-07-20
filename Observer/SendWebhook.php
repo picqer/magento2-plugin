@@ -8,13 +8,16 @@ class SendWebhook implements ObserverInterface
 {
     protected $_scopeConfig;
     protected $_curl;
+    protected $_logger;
 
     public function __construct(
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
-        \Magento\Framework\HTTP\Client\Curl $curl
+        \Magento\Framework\HTTP\Client\Curl $curl,
+        \Psr\Log\LoggerInterface $logger
     ) {
         $this->_scopeConfig = $scopeConfig;
         $this->_curl = $curl;
+        $this->_logger = $logger;
     }
 
     public function execute(\Magento\Framework\Event\Observer $observer)
@@ -38,6 +41,11 @@ class SendWebhook implements ObserverInterface
         $orderData['picqer_magento_key'] = $magentoKey;
 
         $this->_curl->addHeader("Content-Type", "application/json");
-        $this->_curl->post('https://' . $subDomain . '.picqer.com/webshops/magento2/orderPush/' . $magentoKey, json_encode($orderData));
+        $this->_curl->setTimeout(2); // in seconds
+        try {
+            $this->_curl->post(sprintf('https://%s.picqer.com/webshops/magento2/orderPush/%s', trim($subDomain), trim($magentoKey)), json_encode($orderData));
+        } catch (\Exception $e) {
+            $this->_logger->debug(sprintf('Exception occurred with Picqer: %s', $e->getMessage()));
+        }
     }
 }
