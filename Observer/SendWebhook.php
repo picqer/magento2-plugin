@@ -45,7 +45,7 @@ class SendWebhook implements ObserverInterface
         );
 
         $this->_curl->setOptions([
-            CURLOPT_TIMEOUT => 30 // in seconds
+            CURLOPT_TIMEOUT => 2 // in seconds
         ]);
 
         try {
