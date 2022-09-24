@@ -21,6 +21,13 @@
                 <field id="connection_key" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Connection key</label>
                 </field>
+                <field id="cron_enabled" translate="label,comment" type="select" sortOrder="11" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Process by Cron</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends><field id="active">0</field></depends>
+                    <comment>Push orders to `Picqer` by cron instead `On Save Order`</comment>
+                </field>
             </group>
         </section>
     </system>
