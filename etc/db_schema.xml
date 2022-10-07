@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+
+    <table name="picqer_push_order_metadata" resource="default">
+        <column name="id" xsi:type="int" padding="10" unsigned="true" nullable="false" identity="true" comment="ID"/>
+        <column name="order_id" xsi:type="int" padding="11" comment="order id"/>
+        <column name="order_status" xsi:type="varchar" length="255" nullable="false" default="" comment="order status"/>
+        <column name="message" xsi:type="text" comment="message"/>
+        <column name="created_at" xsi:type="timestamp" default="CURRENT_TIMESTAMP" on_update="false"/>
+        <column name="updated_at" xsi:type="timestamp" default="CURRENT_TIMESTAMP" on_update="true"/>
+        <column name="status" xsi:type="tinyint" padding="2" default="0" comment="status"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <index referenceId="order_id_index" indexType="btree">
+            <column name="order_id"/>
+        </index>
+        <index referenceId="processing_status_index" indexType="btree">
+            <column name="status"/>
+        </index>
+    </table>
+
+</schema>
