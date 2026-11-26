@@ -4,22 +4,23 @@
         <tab id="picqer" translate="label" sortOrder="10">
             <label>Picqer</label>
         </tab>
-        <section id="picqer_integration_options" translate="label" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+        <section id="picqer_integration_options" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
             <class>separator-top</class>
             <label>Integration</label>
             <tab>picqer</tab>
             <resource>Picqer_Integration::webhooks_config</resource>
-            <group id="webhook_settings" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+            <group id="webhook_settings" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>General Configuration</label>
-                <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Active</label>
                     <source_model>Picqer\Integration\Model\Sales\Active</source_model>
                 </field>
-                <field id="picqer_subdomain" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                <field id="picqer_subdomain" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Picqer subdomain</label>
                 </field>
-                <field id="connection_key" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                <field id="connection_key" translate="label" type="obscure" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Connection key</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
                 </field>
             </group>
         </section>
