@@ -1,14 +1,17 @@
 <?php
+declare(strict_types=1);
 
 namespace Picqer\Integration\Model\Sales;
 
-class Active implements \Magento\Framework\Option\ArrayInterface
+use Magento\Framework\Data\OptionSourceInterface;
+
+class Active implements OptionSourceInterface
 {
-    public function toOptionArray()
+    public function toOptionArray(): array
     {
         return [
-            ['value' => 1, 'label' => 'Yes'],
-            ['value' => 0, 'label' => 'No']
+            ['value' => 1, 'label' => __('Yes')],
+            ['value' => 0, 'label' => __('No')]
         ];
     }
 }
